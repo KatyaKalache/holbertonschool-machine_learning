@@ -10,6 +10,6 @@ def matrix_shape(matrix):
                 height = len(j)
     res.append(len(matrix))
     res.append(width)
-    if (height):
+    if (height > 0):
         res.append(height)
     return (res)

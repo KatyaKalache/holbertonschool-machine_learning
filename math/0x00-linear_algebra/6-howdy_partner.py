@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Concats 2 arrays
+"""
 
 
 def cat_arrays(arr1, arr2):
@@ -11,6 +14,3 @@ def cat_arrays(arr1, arr2):
     for j in arr2:
         res.append(j)
     return (res)
-
-
-print(cat_arrays.__doc__)

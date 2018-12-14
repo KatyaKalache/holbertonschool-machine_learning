@@ -9,6 +9,3 @@ def add_matrices2D(mat1, mat2):
             row.append(mat1[i][j] + mat2[i][j])
         res.append(row)
     return (res)
-
-if __name__ == "__main__":
-  pass
