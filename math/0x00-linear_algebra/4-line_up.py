@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-# adds two arrays element-wise
-
-
 def add_arrays(arr1, arr2):
     if arr1 is None or arr2 is None:
         return None
