@@ -3,6 +3,8 @@
 
 
 def add_arrays(arr1, arr2):
+    if arr1 is None or arr2 is None:
+        return None
     res = []
     if len(arr1) == len(arr2):
         i = 0
