@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# adds two arrays element-wise
+
 
 def add_arrays(arr1, arr2):
     res = []
