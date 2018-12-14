@@ -1,5 +1,14 @@
 #!/bin/usr/env python3
+"""
+calculates the shape of a matrix
+"""
+
+
 def matrix_shape(matrix):
+    """
+    Getting hight and width of the matrix
+    Return new array with h and w
+    """
     res = []
     width = 0
     height = 0
