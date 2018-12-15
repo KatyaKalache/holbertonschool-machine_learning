@@ -10,15 +10,9 @@ def matrix_shape(matrix):
     Return new array with h and w
     """
     res = []
-    width = 0
-    height = 0
-    for i in matrix:
-        width = len(i)
-        if len(i) > 2:
-            for j in i:
-                height = len(j)
+
     res.append(len(matrix))
-    res.append(width)
-    if (height > 0):
-        res.append(height)
+    res.append(len(matrix[0]))
+    if len(matrix[0]) > 2:
+        res.append(len(matrix[0][0]))
     return (res)
