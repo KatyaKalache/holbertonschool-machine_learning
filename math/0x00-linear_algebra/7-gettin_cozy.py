@@ -10,11 +10,17 @@ def cat_matrices2D(mat1, mat2, axis=0):
     """
     res = []
     if axis == 1:
-        for i in mat1:
-            for j in mat2:
-                res.append(i+[j[0]])
-                mat2.remove(j)
-
-    if axis == 0:
-        res.append(mat1 + mat2)
+        if len(mat1) == len(mat2):
+            for i in mat1:
+                for j in mat2:
+                    res.append(i+[j[0]])
+                    mat2.remove(j)
+        else:
+            return None
+    else:
+        for i in mat2:
+            if len(i) == len(mat1[0]):
+                res.append(mat1 + [i])
+            else:
+                return None
     return (res)
