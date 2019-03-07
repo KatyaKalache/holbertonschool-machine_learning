@@ -11,7 +11,7 @@ def summation_i_squared(n):
     """
     try:
         isinstance(n, (int, float))
-        arr = np.power(np.arange(1, n, 1), 2)
+        arr = np.power(np.arange(1, n+1, 1), 2)
         res = np.sum(arr)
         return (int(res))
     except ValueError:
