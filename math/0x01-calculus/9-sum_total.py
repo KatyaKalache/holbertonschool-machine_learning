@@ -10,6 +10,6 @@ def summation_i_squared(n):
     """
     if isinstance(n, (int)) and n > 0:
         res = n*(n+1)*(2*n+1)/6
-        return (int(sum(res)))
+        return (int(res))
     else:
         return None
