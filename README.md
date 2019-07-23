@@ -6,7 +6,7 @@ Machine Learning
 
 |Learning Objectives  |
 | ---------------- |
-|    `Math for  for Ma Machine Learning`   |
+|    `Math for Machine Learning`   |
 |    `Supervised Learning` |
 
 Ekaterina Kalache: [github account](https://github.com/KatyaKalache), [twitter](https://twitter.com/KatyaKalache)
