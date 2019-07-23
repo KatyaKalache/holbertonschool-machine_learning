@@ -1,4 +1,4 @@
-![alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/9/54daaf81421a9b894688.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJIMMWEC6CH2PXSCQ%2F20181213%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20181213T232017Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ccdf6128f06cc1255ebabdd07ae06575648afd699883e1f8cdcaa586fe2e6fba)
+![alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/9/54daaf81421a9b894688.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20190723%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190723T230436Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e1db1023191f9f021fbb0444e2f150fe48abb384beba632e2580ad9d3dc7e00b)
 ## Description
 0x00. Linear Algebra
 ## Tasks:
