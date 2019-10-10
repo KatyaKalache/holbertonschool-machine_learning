@@ -11,7 +11,7 @@ def mean_cov(X):
     """
     if X.shape[0] < 2:
         raise ValueError("X must contain multiple data points")
-    if (X.ndim) != 2:
+    if X[1:].ndim != 2:
         raise TypeError("X must be a 2D numpy.ndarray")
     mean = X.mean(axis=0)
     mean = np.reshape(mean, (-1, 3))
