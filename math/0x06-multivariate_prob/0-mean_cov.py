@@ -8,9 +8,9 @@ def mean_cov(X):
     """
     Returns: mean, cov
     """
-    if X.shape[1] < 2:
+    if X.shape[0] < 2:
         raise ValueError("X must contain multiple data points")
-    if len(X.shape) != 2:
+    if (X.ndim) != 2:
         raise TypeError("X must be a 2D numpy.ndarray")
     mean = X.mean(axis=0)
     X -= mean
