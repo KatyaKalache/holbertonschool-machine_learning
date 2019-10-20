@@ -26,8 +26,8 @@ def minor(matrix):
     leng = len(matrix)
     if matrix == []:
         raise TypeError("matrix must be a list of lists")
-    if len(matrix) != len(matrix[0]):
-        raise ValueError("matrix must be a square matrix")
+    if len(matrix) != len(matrix[0]) or leng == 0 or len(matrix[0]) == 0:
+        raise ValueError("Matrix must be a non-empty square matrix")
     if len(matrix[0]) == 1:
         return [[1]]
     if leng == 2:
