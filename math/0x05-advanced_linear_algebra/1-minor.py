@@ -10,11 +10,13 @@ def delcolumn(mat_copy, i):
     """
     return [row[:i] + row[i+1:] for row in mat_copy]
 
+
 def delrow(mat_copy, j):
     """
     Removes row
     """
     return mat_copy[:j] + mat_copy[j+1:]
+
 
 def minor(matrix):
     """
@@ -29,16 +31,16 @@ def minor(matrix):
     if len(matrix[0]) == 1:
         return [[1]]
     if leng == 2:
-        minor = [[0,0],[0,0]]
+        minor = [[0, 0], [0, 0]]
     if leng == 3:
-        minor = [[0,0,0], [0,0,0], [0,0,0]]
+        minor = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     for row in range(leng):
         for col in range(leng):
             mat_rm_row = delrow(copy_mat, row)
             mat_rm_col = delcolumn(mat_rm_row, col)
             if leng == 3:
-                minor[row][col] = mat_rm_col[0][0]*mat_rm_col[1][1] - mat_rm_col[0][1]*mat_rm_col[1][0]
+                minor[row][col] = mat_rm_col[0][0]*mat_rm_col[1][1]
+                - mat_rm_col[0][1]*mat_rm_col[1][0]
             if leng == 2:
                 minor[row][col] = mat_rm_col[0][0]
     return minor
-
