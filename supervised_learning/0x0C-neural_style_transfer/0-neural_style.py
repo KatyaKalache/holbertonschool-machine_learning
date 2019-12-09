@@ -30,12 +30,11 @@ class NST:
         and its largest side is 512 pixels
         Returns the scaled image
         """
-        global image
         height = image.shape[0]
         width = image.shape[1]
         new_width = 512
         new_height = int(new_width * height / width)
-        image = tf.image.resize_images(image, (new_height, new_width))
-        image = np.resize(image, (1, new_height, new_width, 3))
-        image = (image - np.min(image))/np.ptp(image)
-        return image
+        image_scaled = tf.image.resize_images(image, (new_height, new_width))
+        image_scaled = np.resize(image_scaled, (1, new_height, new_width, 3))
+        image_scaled = (image_scaled - np.min(image_scaled))/np.ptp(image_scaled)
+        return image_scaled
