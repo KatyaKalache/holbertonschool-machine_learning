@@ -32,7 +32,7 @@ class NST:
             raise TypeError("beta must be a non-negative number")
         self.style_image = self.scale_image(style_image)
         self.content_image = self.scale_image(content_image)
-        self.alpha = 10000
+        self.alpha = float(10000)
         self.beta = 1
 
     def scale_image(self, image):
