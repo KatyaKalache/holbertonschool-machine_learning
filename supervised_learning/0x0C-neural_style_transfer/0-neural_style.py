@@ -37,7 +37,8 @@ class NST:
         self.alpha = float(10000)
         self.beta = 1
 
-    def scale_image(self, image):
+    @staticmethod
+    def scale_image(image):
         """
         Rescales an image such that its values are between 0 and 1
         and its largest side is 512 pixels
@@ -49,6 +50,5 @@ class NST:
         new_height = int(new_width * height / width)
         image_scaled = tf.image.resize_images(image, (new_height, new_width))
         image_scaled = np.resize(image_scaled, (1, new_height, new_width, 3))
-        image_scaled = (
-            image_scaled - np.min(image_scaled))/np.ptp(image_scaled)
-        return image_scaled
+        norm_scaled = image_scaled / 255
+        return norm_scaled
