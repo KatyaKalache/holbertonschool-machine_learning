@@ -48,7 +48,9 @@ class NST:
         width = image.shape[1]
         new_width = 512
         new_height = int(new_width * height / width)
-        image_scaled = tf.image.resize_images(image, (new_height, new_width))
-        image_scaled = np.resize(image_scaled, (1, new_height, new_width, 3))
-        norm_scaled = image_scaled / 255
-        return norm_scaled
+        image_scaled = tf.image.resize_images(
+            image, (new_height, new_width),
+            method=tf.image.ResizeMethod.BICUBIC)
+        image_scaled = tf.reshape(image_scaled, (1, new_height, new_width, 3))
+        norm_img = (image_scaled - np.min(image_scaled)) / np.ptp(image_scaled)
+        return norm_img
