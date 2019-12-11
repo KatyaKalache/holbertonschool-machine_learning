@@ -63,6 +63,10 @@ class NST:
         """
         Calculate gram matrices
         """
+        if not isinstance(input_layer, tf.Tensor) or \
+           isinstance(input_layer, tf.Variable) and \
+           tf.equal(tf.rank(input_layer), 4):
+            raise TypeError("input_layer must be a tensor of rank 4")
         channels = int(input_layer.shape[-1])
         a = tf.reshape(input_layer, [-1, channels])
         n = tf.shape(a)[1]
