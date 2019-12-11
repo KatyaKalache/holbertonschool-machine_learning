@@ -56,6 +56,5 @@ class NST:
         content_outputs = [vgg.get_layer(layer).output for layer
                            in self.content_layer]
         model_outputs = style_outputs + content_outputs
-        vgg.trainable = False
         global model
         model = tf.keras.models.Model(vgg.input, model_outputs)
