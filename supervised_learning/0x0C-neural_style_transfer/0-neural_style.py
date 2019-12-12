@@ -52,5 +52,5 @@ class NST:
             image, (new_height, new_width),
             method=tf.image.ResizeMethod.BICUBIC)
         image_scaled = tf.reshape(image_scaled, (1, new_height, new_width, 3))
-        norm_img = (image_scaled - np.min(image_scaled)) / np.ptp(image_scaled)
-        return norm_img
+        norm_img = image_scaled / np.max(image_scaled)
+        return abs(norm_img)
