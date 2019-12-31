@@ -46,8 +46,8 @@ class NST:
         """
         height = image.shape[0]
         width = image.shape[1]
-        new_width = 512
-        new_height = int(new_width * height / width)
+        new_width = int(width / max(image.shape)*512)
+        new_height = int(height / max(image.shape)*512)
         image_scaled = tf.image.resize_images(
             image, (new_height, new_width),
             method=tf.image.ResizeMethod.BICUBIC)
