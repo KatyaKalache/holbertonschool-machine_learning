@@ -8,7 +8,7 @@ import numpy as np
 
 def likelihood(x, n, P):
     """
-    Returns: a 1D numpy.ndarray containing the likelihood 
+    Returns: a 1D numpy.ndarray containing the likelihood
     of obtaining the data, x and n, for each probability in P
     """
     if P.ndim != 1:
@@ -17,5 +17,6 @@ def likelihood(x, n, P):
         raise ValueError("All values in P must be in the range [0, 1]")
     res = []
     for theta in P:
-        res.append((factorial(n) /(factorial(x) * factorial(n - x)))* (theta ** x) * ((1 - theta) ** (n - x)))
+        res.append((factorial(n) / (factorial(x) * factorial(n - x))) *
+                   (theta ** x) * ((1 - theta) ** (n - x)))
     return res
