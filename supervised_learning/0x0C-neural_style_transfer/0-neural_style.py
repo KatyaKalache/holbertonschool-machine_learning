@@ -15,17 +15,18 @@ class NST:
                     'block4_conv1', 'block5_conv1']
     content_layer = 'block5_conv2'
 
-    def __init__(self, style_image, content_image, alpha=1e1, beta=1e3):
+    def __init__(self, style_image, content_image, alpha=1e4, beta=1):
         """
         Class constructor
         """
-        if type(style_image) is not np.ndarray or \
+        if not isinstance(style_image, np.ndarray) or \
            len(style_image.shape) != 3 or \
            style_image.shape[2] != 3:
             raise TypeError(
                 "style_image must be a numpy.ndarray with shape (h, w, 3)")
-        if type(content_image) is not np.ndarray or \
-           len(content_image.shape) != 3 or content_image.shape[2] != 3:
+        if not isinstance(content_image, np.ndarray) or \
+           len(content_image.shape) != 3 or \
+           content_image.shape[2] != 3:
             raise TypeError(
                 "content_image must be a numpy.ndarray with shape (h, w, 3)")
         if alpha < 0:
@@ -34,8 +35,8 @@ class NST:
             raise TypeError("beta must be a non-negative number")
         self.style_image = self.scale_image(style_image)
         self.content_image = self.scale_image(content_image)
-        self.alpha = float(10000)
-        self.beta = 1
+        self.alpha = alpha
+        self.beta = beta
 
     @staticmethod
     def scale_image(image):
