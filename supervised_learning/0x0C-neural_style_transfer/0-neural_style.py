@@ -48,8 +48,8 @@ class NST:
         if not isinstance(image, np.ndarray) or \
            len(image.shape) != 3 or \
            image.shape[2] != 3:
-             raise TypeError(
-                 "image must be a numpy.ndarray with shape (h, w, 3)")
+            raise TypeError(
+                "image must be a numpy.ndarray with shape (h, w, 3)")
         height = image.shape[0]
         width = image.shape[1]
         scale = 512 / max(height, width)
