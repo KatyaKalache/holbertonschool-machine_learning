@@ -46,11 +46,9 @@ class NST:
         """
         height = image.shape[0]
         width = image.shape[1]
-        new_width = int(width / max(image.shape)*512)
-        new_height = int(height / max(image.shape)*512)
-        image_scaled = tf.image.resize_images(
-            image, (new_height, new_width),
-            method=tf.image.ResizeMethod.BICUBIC)
-        image_scaled = tf.reshape(image_scaled, (1, new_height, new_width, 3))
-        norm_img = image_scaled / np.max(image_scaled)
-        return abs(norm_img)
+        scale = 512 / max(height, width)
+        new_shape = (int(scale * height), int(scale * width))
+        image = np.expand_dims(image, axis=0)
+        image_scaled = tf.clip_by_value(tf.image.resize_bicubic
+                                        (image, new_shape) / 255.0, 0.0, 1.0)
+        return image_scaled
