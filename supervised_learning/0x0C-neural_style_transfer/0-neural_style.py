@@ -29,9 +29,9 @@ class NST:
            content_image.shape[2] != 3:
             raise TypeError(
                 "content_image must be a numpy.ndarray with shape (h, w, 3)")
-        if alpha < 0:
+        if alpha < 0 or not isinstance(alpha, (int, float)):
             raise TypeError("alpha must be a non-negative number")
-        if beta < 0:
+        if beta < 0 or not isinstance(beta, (int, float)):
             raise TypeError("beta must be a non-negative number")
         self.style_image = self.scale_image(style_image)
         self.content_image = self.scale_image(content_image)
