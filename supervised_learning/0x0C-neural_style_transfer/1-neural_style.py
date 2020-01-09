@@ -80,3 +80,4 @@ class NST:
         model_outputs = style_outputs + content_outputs
         global model
         model = tf.keras.models.Model(avg.layers[0].input, model_outputs)
+        print("Model: \"model\"")
