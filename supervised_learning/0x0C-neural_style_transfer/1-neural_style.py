@@ -73,12 +73,12 @@ class NST:
                 layer = tf.keras.layers.AveragePooling2D(name=layer.name)
                 avg.add(layer)
             avg.add(layer)
-        style_outputs = [vgg.get_layer(layer).get_output_at(1)
+        style_outputs = [avg.get_layer(layer).get_output_at(1)
                          for layer in self.style_layers]
-        content_outputs = [vgg.get_layer(layer).get_output_at(1)
+        content_outputs = [avg.get_layer(layer).get_output_at(1)
                            for layer in self.content_layer]
         model_outputs = style_outputs + content_outputs
         global model
         model = tf.keras.models.Model(inputs=vgg.input,
                                       outputs=model_outputs,
-                                      name='model')
+                                      name="model")
