@@ -79,5 +79,6 @@ class NST:
                            for layer in self.content_layer]
         model_outputs = style_outputs + content_outputs
         global model
-        model = tf.keras.models.Model(inputs=[vgg.input],
-                                      outputs=model_outputs)
+        model = tf.keras.models.Model(inputs=vgg.input,
+                                      outputs=model_outputs,
+                                      name='model')
