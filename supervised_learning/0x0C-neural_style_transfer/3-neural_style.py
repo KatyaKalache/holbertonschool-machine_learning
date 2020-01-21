@@ -13,8 +13,7 @@ class NST:
     """
     style_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1',
                     'block4_conv1', 'block5_conv1']
-    content_layer = ['block5_conv2']
-
+    content_layer = 'block5_conv2'
     def __init__(self, style_image, content_image, alpha=1e4, beta=1):
         """
         Class constructor
@@ -69,19 +68,18 @@ class NST:
         Creates the model used to calculate cost
         """
         vgg = tf.keras.applications.vgg19.VGG19(include_top=False)
-        outputs = []
-        x = vgg.input
+        avg = tf.keras.Sequential()
         for layer in vgg.layers:
             layer.trainable = False
-            if layer.name in self.style_layers:                
-                if isinstance(layer, tf.keras.layers.MaxPooling2D):
-                    tf.keras.layers.AveragePooling2D(name=layer.name)(x)
-                outputs.append(layer.output)
-            if layer.name in self.content_layer:
-                outputs.append(layer.output)
+            if isinstance(layer, tf.keras.layers.MaxPooling2D):
+                layer = tf.keras.layers.AveragePooling2D(name=layer.name)
+            avg.add(layer)
+        model_outputs = [avg.get_layer(layer).get_output_at(1)
+                         for layer in self.style_layers + [self.content_layer]]
         global model
-        model = tf.keras.Model(vgg.input, outputs, name="model")
-        
+        model = tf.keras.models.Model(avg.layers[0].input, model_outputs)
+                                                                                                            
+
     @staticmethod
     def gram_matrix(input_layer):
         """
