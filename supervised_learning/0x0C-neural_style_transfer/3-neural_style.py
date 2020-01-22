@@ -4,6 +4,7 @@ Create a class NST that performs tasks for neural style transfer
 """
 import numpy as np
 import tensorflow as tf
+from tensorflow.keras.applications.vgg19 import preprocess_input
 tf.enable_eager_execution()
 
 
@@ -14,6 +15,7 @@ class NST:
     style_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1',
                     'block4_conv1', 'block5_conv1']
     content_layer = 'block5_conv2'
+
     def __init__(self, style_image, content_image, alpha=1e4, beta=1):
         """
         Class constructor
@@ -68,17 +70,19 @@ class NST:
         Creates the model used to calculate cost
         """
         vgg = tf.keras.applications.vgg19.VGG19(include_top=False)
-        avg = tf.keras.Sequential()
-        for layer in vgg.layers:
+        x = vgg.input
+
+        for layer in vgg.layers[1:]:
             layer.trainable = False
             if isinstance(layer, tf.keras.layers.MaxPooling2D):
-                layer = tf.keras.layers.AveragePooling2D(name=layer.name)
-            avg.add(layer)
-        model_outputs = [avg.get_layer(layer).get_output_at(1)
-                         for layer in self.style_layers + [self.content_layer]]
+                x = tf.keras.layers.AveragePooling2D(name=layer.name)(x)
+            else:
+                x = layer(x)
         global model
-        model = tf.keras.models.Model(avg.layers[0].input, model_outputs)
-                                                                                                            
+        model = tf.keras.models.Model(vgg.input, x, name="model")
+        outputs = [model.get_layer(layer).get_output_at(1)
+                   for layer in self.style_layers + [self.content_layer]]
+        model = tf.keras.models.Model(vgg.input, outputs)
 
     @staticmethod
     def gram_matrix(input_layer):
@@ -102,10 +106,11 @@ class NST:
         """
         global style_features
         global content_features
-        style_image = self.style_image * 255
-        content_image = self.content_image * 255
-        st = model(style_image)
-        cont = model(content_image)
-        style_features = [self.gram_matrix(layer) for layer in st]
-        content_features = cont[-1:]
-
+        st_lay_len = len(self.style_layers)
+        from tensorflow.keras.applications.vgg19 import preprocess_input
+        style_image = preprocess_input(self.style_image*255)
+        content_image = preprocess_input(self.content_image*255)
+        features = model(style_image) + model(content_image)
+        style_features = [self.gram_matrix(layer) for
+                          layer in features[:st_lay_len]]
+        content_features = features[-1:]
