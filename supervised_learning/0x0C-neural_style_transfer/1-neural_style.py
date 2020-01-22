@@ -13,7 +13,7 @@ class NST:
     """
     style_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1',
                     'block4_conv1', 'block5_conv1']
-    content_layer = ['block5_conv2']
+    content_layer = 'block5_conv2'
 
     def __init__(self, style_image, content_image, alpha=1e4, beta=1):
         """
@@ -66,19 +66,16 @@ class NST:
         Creates the model used to calculate cost
         """
         vgg = tf.keras.applications.vgg19.VGG19(include_top=False)
-        avg = tf.keras.Sequential()
-        for layer in vgg.layers:
+        x = vgg.input
+
+        for layer in vgg.layers[1:]:
             layer.trainable = False
             if isinstance(layer, tf.keras.layers.MaxPooling2D):
-                layer = tf.keras.layers.AveragePooling2D(name=layer.name)
-                avg.add(layer)
-            avg.add(layer)
-        style_outputs = [avg.get_layer(layer).get_output_at(1)
-                         for layer in self.style_layers]
-        content_outputs = [avg.get_layer(layer).get_output_at(1)
-                           for layer in self.content_layer]
-        model_outputs = style_outputs + content_outputs
+                x = tf.keras.layers.AveragePooling2D(name=layer.name)(x)
+            else:
+                x = layer(x)
         global model
-        model = tf.keras.models.Model(inputs=vgg.input,
-                                      outputs=model_outputs,
-                                      name="model")
+        model = tf.keras.models.Model(vgg.input, x, name="model")
+        outputs = [model.get_layer(layer).get_output_at(1)
+                   for layer in self.style_layers + [self.content_layer]]
+        model = tf.keras.models.Model(vgg.input, outputs)
