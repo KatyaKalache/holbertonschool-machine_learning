@@ -107,7 +107,6 @@ class NST:
         global style_features
         global content_features
         st_lay_len = len(self.style_layers)
-        from tensorflow.keras.applications.vgg19 import preprocess_input
         style_image = preprocess_input(self.style_image*255)
         content_image = preprocess_input(self.content_image*255)
         features = model(style_image) + model(content_image)
