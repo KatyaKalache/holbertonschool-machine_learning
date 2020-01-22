@@ -119,5 +119,12 @@ class NST:
         Calculates the style cost for a single layer
         Returns: the layer’s style cost
         """
+        if not isinstance(style_output, (tf.Tensor, tf.Variable)) or len(
+                style_output.shape) != 4:
+            raise TypeError("style_output must be a tensor of rank 4")
+        if not isinstance(gram_target,  (tf.Tensor, tf.Variable)) or len(
+                gram_target.shape) != 3 or gram_target.shape[0] != 1:
+            raise TypeError(
+                "gram_target must be a tensor of shape [1, {c}, {c}]")
         style_output = self.gram_matrix(style_output)
         return tf.reduce_mean((style_output-gram_target)**2)
