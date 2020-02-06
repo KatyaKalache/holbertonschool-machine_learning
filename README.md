@@ -39,7 +39,7 @@ Machine Learning
 |`Deep recurrent architectures `|
 
 | Learning Objectives: Unsupervised Learning |
-|----------------|
+| ---------------- |
 |`Principal component analysis `|
 |`Clustering`|
 |`Embeddings`|
@@ -47,7 +47,7 @@ Machine Learning
 |`Bayesian optimization`|
 |`Hidden Markov Models`|
 | Learning Objectives: Data Management |
-|----------------|
+| ---------------- |
 |`Web scraping `|
 |`Data labeling	`|
 |`Avoiding human bias `|
