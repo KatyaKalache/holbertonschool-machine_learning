@@ -4,9 +4,8 @@ Holberton School Specialization Track
 ## Specialization
 Machine Learning
 
-|Learning Objectives: `Math for Machine Learning` |
+| Learning Objectives: Math for Machine Learning |
 | ---------------- |
-|    `Math for Machine Learning`   |
 |`Scalars, vectors, matrices, and tensors`|
 |`The Dot product and matrix multiplication `|
 |`Matrix identities, inverses, and determinants`|
@@ -24,7 +23,7 @@ Machine Learning
 |`Bayesian probability`|
 |`Mixture models `|
 
-| Learning Objectives:  `Supervised Learning` |
+| Learning Objectives: Supervised Learning |
 | ---------------- |
 |`Multi-layered networks`|
 |`Forward and back propagation `|
@@ -39,7 +38,7 @@ Machine Learning
 |`Recurrent neural networks`|
 |`Deep recurrent architectures `|
 
-|Learning Objectives: `Unsupervised Learning`|
+| Learning Objectives: Unsupervised Learning |
 |----------------|
 |`Principal component analysis `|
 |`Clustering`|
@@ -47,7 +46,7 @@ Machine Learning
 |`Autoencoders`|
 |`Bayesian optimization`|
 |`Hidden Markov Models`|
-|Learning Objectives: `Data Management`|
+| Learning Objectives: Data Management |
 |----------------|
 |`Web scraping `|
 |`Data labeling	`|
