@@ -2,7 +2,7 @@
 ## Description
 Holberton School Specialization Track
 ## Specialization
-Machine Learning
+## Machine Learning
 
 | Learning Objectives: Math for Machine Learning |
 | ---------------- |
@@ -46,6 +46,7 @@ Machine Learning
 |`Autoencoders`|
 |`Bayesian optimization`|
 |`Hidden Markov Models`|
+
 | Learning Objectives: Data Management |
 | ---------------- |
 |`Web scraping `|
