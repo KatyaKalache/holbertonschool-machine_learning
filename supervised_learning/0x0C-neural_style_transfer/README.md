@@ -1,9 +1,7 @@
 ## Description
 Neural Style Transfer
 
-![alt sf_houses](https://i.imgur.com/fyy34tH.jpg?1) + ![alt keith_haring](https://i.imgur.com/VSfmQe7.jpg?1) = ![alt generated_img](https://i.imgur.com/WowpanU.png?1)
-
-
+![alt sf_houses](https://imgur.com/a/13sWrPD)
 | Learning Objectives  |
 | ---------------- |
 | `What is Neural Style Transfer?` |
