@@ -10,5 +10,13 @@ Neural Style Transfer
 * NumPy
 * Vgg19
 
+## Process
+0. Upload and resize both content and style images to equal shape
+1. Load VGG19 Keras as base model
+2. Adding method that calculates gram matricies
+3. Extracting the features used to calculate neural style cost
+4. Calculating the style, content and total costs for generated image
+5. Computing the gradients for the generated image
+6. Generating  the neural style transfered image
 
 Ekaterina Kalache: [github account](https://github.com/KatyaKalache), [twitter](https://twitter.com/KatyaKalache)
