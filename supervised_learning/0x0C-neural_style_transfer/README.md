@@ -1,7 +1,7 @@
 ## Description
 Neural Style Transfer
 
-![alt sf_houses](https://i.imgur.com/BgGxIDe.png)
+![alt sf_houses](https://i.imgur.com/BgGxIDe.png?1)
 | Learning Objectives  |
 | ---------------- |
 | `What is Neural Style Transfer?` |
