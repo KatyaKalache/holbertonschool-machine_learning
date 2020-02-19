@@ -1,7 +1,9 @@
 ## Description
 Neural Style Transfer
 
-![alt sf_houses](https://github.com/KatyaKalache/holbertonschool-machine_learning/blob/master/supervised_learning/0x0C-neural_style_transfer/sf_houses.jpg?raw=true =500X343)
+![sf_houses](https://i.imgur.com/Ln9JqUw.png?1)
+![keith haring](https://i.imgur.com/21vw6dK.jpg?1)
+![generated](https://i.imgur.com/onnS4Wg.png?1)
 
 ## Dependencies
 * Tensorflow
