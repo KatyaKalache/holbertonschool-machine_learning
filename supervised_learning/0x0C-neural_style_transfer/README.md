@@ -1,12 +1,12 @@
 ## Description
-0x0C. Neural Style Transfer
+Neural Style Transfer
 
-## Specialization
-Machine Learning
+![alt sf_houses](https://i.imgur.com/fyy34tH.jpg) + ![alt keith_haring](https://i.imgur.com/VSfmQe7.jpg) = ![alt generated_img](https://i.imgur.com/WowpanU.png)
+
 
 | Learning Objectives  |
 | ---------------- |
-|    `What is Neural Style Transfer?` |
+| `What is Neural Style Transfer?` |
 | `What is a gram matrix?` |
 | `How to calculate style cost` |
 | `How to calculate content cost` |
