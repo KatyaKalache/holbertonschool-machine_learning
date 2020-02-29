@@ -13,9 +13,8 @@ class Yolo:
         """
         Class constructor
         """
-        self.model = load_model(model_path) 
+        self.model = load_model(model_path)
         self.class_names = open(classes_path).read().splitlines()
         self.class_t = class_t
         self.nms_t = nms_t
         self.anchors = anchors
-        
